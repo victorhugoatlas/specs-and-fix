@@ -1,8 +1,7 @@
 @echo off
-title SPECS AND FIX BY VICTOR HUGO
+title SPECS AND FIX BY VH
 setlocal
 
-:: Verifica se o prompt está rodando como Administrador
 net session >nul 2>&1
 if %errorLevel% == 0 (
     goto :RunAdmin
@@ -13,8 +12,6 @@ if %errorLevel% == 0 (
 )
 
 :RunAdmin
-:: Garante que o terminal está executando dentro da pasta onde o script está salvo
 pushd "%~dp0"
-:: Ajustado para o novo nome do arquivo .ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File "specs-and-fix.ps1"
 pause
